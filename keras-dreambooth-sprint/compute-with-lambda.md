@@ -118,9 +118,9 @@ The path should point to `/home/ubuntu/miniconda3/envs/my_env/bin/pip`.
 
 As a next step, we need to install necessary dependencies for CUDA Support to work properly and getting a jupyter notebook running. Ensure you are inside the `my_env` conda environment you created previously:
 ```bash
-conda install nb_conda_kernels
+conda install nb_conda_kernels -y
 ipython kernel install --user --name=my_env
-conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
+conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0 -y
 ```
 Next you need to setup XLA to the correct CUDA library path with following command:
  ```bash
@@ -132,7 +132,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 Now, we also must install Tensorflow inside our virtual environment. It is recommend, doing so with pip:
 
  ```bash
-python -m pip install tensorflow
+python -m pip install tensorflow==2.11.0
  ```
  To confirm the installed version, and the success of setting up our drivers in the conda environment:
  ```bash
